@@ -1,0 +1,31 @@
+<section style="margin-bottom: 0; font-weight: bold; position: absolute; top:3%; left:3%; z-index: 100;">
+    <a href="/" class="btn btn-dark">&lt;&lt;&nbsp;Back</a>
+</section>
+<a-scene arjs='sourceType: webcam;detectionMode: mono_and_matrix;'>
+
+    <!-- using barcode marker -->
+    <a-marker type='barcode' value='5'>
+        <a-entity rotation="-90 0 0" 
+            position="-0.8 -2 0">
+            <a-text value="Hello world!" color="#f3dbff"></a-text>
+        </a-entity>
+    </a-marker>
+
+    <!-- using preset hiro marker -->
+    <a-marker preset="hiro">
+        <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 360; loop: true; dur: 10000">
+            <a-octahedron color="#bfcef5" radius="0.8"></a-octahedron>
+        </a-entity>
+    </a-marker>
+
+    <!-- using custom marker -->
+    <a-marker type="pattern"
+        url="https://gist.githubusercontent.com/shreyaparadkar/8cede7bf577c8359a4ab7e16daa861e2/raw/bd88969732059f60b70353ce150f11844cc981cb/marker.patt">
+        <a-entity 
+            gltf-model="url(https://raw.githubusercontent.com/KhronosGroup/glTF-Sample-Models/master/2.0/Duck/glTF/Duck.gltf)"
+            position="0 1 0" rotation="-75 0 0" animation="property: rotation; to: 0 -90 0;to:75 -90 0; loop: true; dur: 5000"></a-entity>
+    </a-marker>
+
+    <!-- set camera to scan to marker -->
+    <a-entity camera></a-entity>
+</a-scene>
